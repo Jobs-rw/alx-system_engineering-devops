@@ -1,2 +1,2 @@
 #!/bin/bash
-echo '😀' | hexdump -C
+echo '(Ôo)' | hexdump -C
