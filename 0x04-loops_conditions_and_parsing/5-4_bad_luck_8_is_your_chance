@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-"""this will print 10 times on 4th and 8th will bad luck and good luck"""
+#this will print 10 times on 4th and 8th will bad luck and good luck"""
 
 i=1
 
