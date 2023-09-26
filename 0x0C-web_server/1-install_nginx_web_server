@@ -1,0 +1,28 @@
+#!/usr/bin/env bash
+# Installs Nginx
+
+# Update the package list to ensure we have the latest information about available packages
+sudo apt update
+
+# Install Nginx
+sudo apt install -y nginx
+
+# Check if Nginx is running
+if pgrep -x "nginx" > /dev/null
+then
+    echo "Nginx is already running."
+else
+    # Start Nginx if it's not already running
+    sudo service nginx start
+fi
+
+# Create a default HTML page with "Hello World!" content
+echo "<!DOCTYPE html><html><body><h1>Hello World!</h1></body></html>" | sudo tee /var/www/html/index.html
+
+# Check if Nginx is listening on port 80
+if sudo netstat -tuln | grep ':80' > /dev/null
+then
+    echo "Nginx is listening on port 80."
+else
+    echo "Nginx is not listening on port 80."
+fi
