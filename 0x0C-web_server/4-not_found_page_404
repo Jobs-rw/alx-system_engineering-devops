@@ -1,53 +1,24 @@
-#!/bin/bash
+#!/usr/bin/env bash
+# Installs nginx web server
 
-# Update the package list to ensure we install the latest version of packages
 apt-get update
-
-# Install Nginx
 apt-get install -y nginx
-
-# Create a simple HTML file with "Holberton School" content
+service nginx start
+mkdir /etc/nginx/html
 echo "Hello world!" > /etc/nginx/html/index.html
-
-# Create a custom 404 error page
-echo "<html><body><h1>404 Not Found</h1><p>Ceci n'est pas une page.</p></body></html>" > /etc/nginx/html/404.html
-
-# Create a new location block in the default Nginx configuration for 404 errors
+echo "Ceci n'est pas une page" > /etc/nginx/html/404.html
 echo "server {
     listen 80;
     listen [::]:80 default_server;
     root   /etc/nginx/html;
     index  index.html;
     location /redirect_me {
-        return 301 https://https://www.google.com/;
+        return 301 https://twitter.com/Emmanue17280546;
     }
     error_page 404 /404.html;
+    location = /404.html{
+        root /etc/nginx/html;
+        internal;
+    }
 }" > /etc/nginx/sites-available/default
-
-# Check if Nginx is already running and stop it if necessary
-if ps aux | grep -q '[n]ginx'; then
-    echo "Stopping Nginx..."
-    killall nginx
-    sleep 2  # Give Nginx some time to shut down gracefully
-fi
-
-# Start Nginx in the background
-nginx
-
-# Wait for Nginx to start (you can adjust the sleep duration if needed)
-sleep 2
-
-# Check if Nginx is listening on port 80
-if netstat -tuln | grep ':80 ' | grep -q 'LISTEN'; then
-    echo "Nginx is listening on port 80"
-else
-    echo "Nginx is not listening on port 80. There may be an issue."
-fi
-
-# Clean up (optional)
-# Remove default Nginx configuration
-rm /etc/nginx/sites-available/default
-
-# Exit with success message
-echo "Nginx has been configured to have a custom 404 page."
-
+service nginx restart
