@@ -1,32 +1,16 @@
 #!/usr/bin/env bash
+# Installs nginx web server
 
-# Update the package list to ensure we have the latest information about available packages
-sudo apt update
-
-# Install Nginx if it's not already installed
-if ! command -v nginx &> /dev/null; then
-    sudo apt install -y nginx
-fi
-
-# Create a new Nginx configuration file for redirection
-sudo tee /etc/nginx/sites-available/redirect_me <<EOF
-server {
+apt-get update
+apt-get install -y nginx
+echo "hello world!" > /etc/nginx/html/index.html
+echo "server {
     listen 80;
-    server_name your_domain.com; # Replace with your domain or server IP
-
+    listen [::]:80 default_server;
+    root   /etc/nginx/html;
+    index  index.html;
     location /redirect_me {
-        return 301 https://example.com/new_page; # Replace with the new destination URL
+        return 301 https://https://www.google.com/
     }
-
-    # Other server configuration (if any)
-}
-EOF
-
-# Create a symbolic link to enable the configuration
-sudo ln -s /etc/nginx/sites-available/redirect_me /etc/nginx/sites-enabled/
-
-# Test Nginx configuration
-sudo nginx -t
-
-# Reload Nginx to apply changes
-sudo service nginx reload
+}" > /etc/nginx/sites-available/default
+service nginx restart
