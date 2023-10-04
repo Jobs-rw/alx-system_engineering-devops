@@ -1,0 +1,14 @@
+#!/usr/bin/env bash
+#configure nginx server to listen for port 80 as before
+
+# Check if Nginx is running
+if ! pgrep -x "nginx" >/dev/null; then
+    echo "Nginx is not running."
+    exit 1
+fi
+
+# Update Nginx configuration to use port 80
+sed -i 's/8080/80/g' /etc/nginx/sites-enabled/default
+
+# Restart Nginx
+service nginx restart
