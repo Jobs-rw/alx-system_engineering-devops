@@ -1,0 +1,25 @@
+Introduction
+
+After find out that many IT engineers ,they don't understand well what behind with these key aspects such as DNS requests, TCP/IP, Firewall, HTTPS/SSL, Load-balancer, Web server, Application server, Database.
+1.     DNS Request
+The journey begins with the Domain Name System (DNS). Your web browser first sends a DNS request to resolve the human-friendly domain name "www.google.com" into an IP address that computers understand. This step ensures that your browser knows where to send the request.
+2.     TCP/IP
+Once the DNS resolution is complete, your browser establishes a Transmission Control Protocol (TCP) connection with the IP address of the server hosting www.google.com. TCP ensures reliable, ordered, and error-checked data transmission, forming the foundation of internet communication. 
+3.     Firewall
+Before your request reaches the destination server, it may encounter a firewall. Firewalls act as a protective barrier to filter out potentially harmful or unauthorized traffic. In the case of Google, their firewall systems ensure that only legitimate requests make it through.
+4.     HTTPS/SSL
+Modern web security relies on HTTPS (Hypertext Transfer Protocol Secure) and SSL (Secure Sockets Layer). When your browser connects to the Google server, it initiates a secure connection using SSL/TLS protocols. This encryption ensures that data exchanged between your browser and the server remains confidential and secure.
+5.     Load Balancer
+To manage the high volume of incoming traffic, large websites like Google often use load balancers. Load balancers distribute incoming requests among multiple server instances, ensuring that no single server is overwhelmed. This optimizes performance and redundancy.
+6.     Web Server
+Once your request reaches Google's load balancer, it is directed to one of many web servers. These web servers are responsible for handling incoming HTTP requests, processing them, and returning the appropriate response. 
+7.     Application Server
+Some web applications require additional processing beyond what a web server can handle. This is where application servers come into play. Application servers execute the core logic of a web application. In Google's case, they handle complex search algorithms and personalized search results.
+8.     Database
+To provide relevant search results, Google relies on massive databases that store and retrieve information from the web. When you search for something, the application server sends queries to these databases, which return the search results.
+Conclusion
+The process of what happens when you type "https://www.google.com” and press Enter is a fascinating journey through the intricacies of the web stack. From DNS resolution to load balancing, security, and data retrieval, every component plays a crucial role in ensuring you receive fast and secure access to the information you seek. 
+
+Prepared and posted by:
+SHUMBUSHO Jobs
+Independent IT Consultant/DevOps Engineer
