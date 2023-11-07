@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-""" How many subs? """
+""" How many hos """
 
 
 def number_of_subscribers(subreddit):
