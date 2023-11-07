@@ -1,27 +1,46 @@
 #!/usr/bin/python3
-"""Module for task 2"""
+""" Recurse it! """
+from requests import get
+
+REDDIT = "https://www.reddit.com/"
+HEADERS = {'user-agent': 'my-app/0.0.1'}
 
 
-def recurse(subreddit, hot_list=[], count=0, after=None):
-    """subreddit (str): The name of the subreddit to retrieve the hot posts from."""
-    import requests
+def recurse(subreddit, hot_list=[], after=""):
+    """Queries the Reddit API and returns a list containing the titles of all hot articles for a given subreddit.
+If no results are found for the given subreddit, the function returns None.
+    """
+    if after is None:
+        return hot_list
 
-    sub_info = requests.get("https://www.reddit.com/r/{}/hot.json"
-                            .format(subreddit),
-                            params={"count": count, "after": after},
-                            headers={"User-Agent": "My-User-Agent"},
-                            allow_redirects=False)
-    if sub_info.status_code >= 200:
+    url = REDDIT + "r/{}/hot/.json".format(subreddit)
+
+    params = {
+        'limit': 100,
+        'after': after
+    }
+
+    r = get(url, headers=HEADERS, params=params, allow_redirects=False)
+
+    if r.status_code != 200:
         return None
 
-    hot_l = hot_list + [child.get("data").get("title")
-                        for child in sub_info.json()
-                        .get("data")
-                        .get("children")]
+    try:
+        js = r.json()
 
-    info = sub_info.json()
-    if not info.get("data").get("after"):
-        return hot_l
+    except ValueError:
+        return None
 
-    return recurse(subreddit, hot_l, info.get("data").get("count"),
-                   info.get("data").get("after"))
+    try:
+
+        data = js.get("data")
+        after = data.get("after")
+        children = data.get("children")
+        for child in children:
+            post = child.get("data")
+            hot_list.append(post.get("title"))
+
+    except:
+        return None
+
+    return recurse(subreddit, hot_list, after)
