@@ -1,0 +1,43 @@
+0x19. Postmortem
+Issue Summary:
+
+Duration: The outage occurred from 3:00 PM to 6:30 PM (Kigali Time) on November 15, 2023.
+
+Impact: The primary impact was on the authentication service, causing login failures for 30% of our users during the outage period.
+
+Root Cause: The issue was caused by a misconfiguration in the load balancer settings, leading to an overload on the authentication server and subsequent service degradation.
+
+Timeline(in Kigali Time):
+
+- 3:00 PM (Kigali time): Issue Detected.
+- 3:15 PM (Kigali time): Monitoring alerts triggered for increased latency and error rates.
+- 3:30 PM (Kigali time): Engineering team notified through automated alerting system.
+- 3:45 PM (Kigali time): Initial investigation focused on the authentication server logs and database connections.
+- 4:15 PM (Kigali time): Misleading path: Initially suspected a database issue due to high query counts.
+- 4:45 PM (Kigali time): Escalated incident to the system operations team for further assistance.
+- 5:00 PM (Kigali time): Identified the misconfiguration in the load balancer settings as the root cause.
+- 5:30 PM (Kigali time): Implemented a temporary fix to restore service while reconfiguring the load balancer.
+- 6:30 PM (UTC):Issue resolved with full service restoration.
+
+Root Cause and Resolution:
+
+Root Cause: The root cause was identified as a misconfiguration in the load balancer, leading to uneven distribution of traffic to the authentication servers. This resulted in increased server load, latency, and ultimately, service degradation.
+
+Resolution:The immediate fix involved reconfiguring the load balancer to evenly distribute traffic among the authentication servers. Additionally, a thorough review of load balancer settings and monitoring configurations was conducted to prevent similar misconfigurations in the future.
+
+Corrective and Preventative Measures:
+
+Improvements/Fixes:
+1. Load Balancer Configuration Review: Conduct a comprehensive review of all load balancer configurations to ensure proper settings and distribution of traffic.
+2. Monitoring Enhancement: Implement additional monitoring checks for load balancer performance, latency, and server response times.
+3. Documentation Update: Update documentation to include clear guidelines on load balancer configurations to prevent misconfigurations.
+
+Tasks:
+1. Load Balancer Audit:Schedule a full audit of load balancer configurations across all services.
+2. Training: Provide training sessions for the operations team on load balancer management and monitoring.
+3. Automated Testing: Implement automated testing for load balancer configurations as part of the continuous integration/continuous deployment (CI/CD) pipeline.
+
+This incident highlighted the importance of regular audits, thorough monitoring, and swift collaboration between engineering and operations teams. By implementing these corrective and preventative measures, we aim to enhance the reliability and performance of our authentication service, minimizing the risk of similar outages in the future.
+
+
+
