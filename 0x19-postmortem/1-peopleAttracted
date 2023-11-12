@@ -1,0 +1,42 @@
+What an apocalypse happened this morning!!!!!!!!!!!
+Issue Summary:
+
+Duration:The great login apocalypse struck our realms from 3:00 PM to 6:30 PM (UTC) on November 12, 2023.
+
+Impact: The authentication service went on a coffee break, causing login failures for 80% of our users. It decided to clock out at the most inconvenient time.
+
+Root Cause:The mischievous Load Balancer Goblin, tired of an uneventful day, decided to play pranks by misconfiguring itself. This led to an influx of frustrated users who couldn't get past the virtual bouncer.
+
+Timeline:
+
+- 3:00 PM (Kigali Time): The login party got a little too wild.
+- 3:15 PM (Kigali Time): Monitoring alerts started beeping louder than a caffeine-deprived rooster.
+- 3:30 PM (Kigali Time): The engineering team got an urgent invitation to the not-so-fun party.
+- 3:45 PM (Kigali Time): Initial investigation turned into a virtual scavenger hunt in the authentication server logs.
+- 4:15 PM (Kigali Time): "Database, you're acting suspicious!" was shouted across the virtual office. Turns out, it was innocent.
+- 4:45 PM (Kigali Time): Send out the bat-signal to the system operations team. Things were getting weirder than a cat with a tambourine.
+- 5:00 PM (Kigali Time): Unmasked the Load Balancer Goblin and banished it to the realms of misconfiguration.
+- 5:30 PM (Kigali Time): Implemented a quick-fix spell while reconfiguring the load balancer.
+- 6:30 PM (Kigali Time): The party resumed, and everyone got back to logging in.
+
+Root Cause and Resolution:
+
+Root Cause: Blame it on the Load Balancer Goblin. It mischievously misconfigured itself, leading to an uneven distribution of traffic and a party pooper situation.
+
+Resolution: We reconfigured the Load Balancer Goblin to behave itself and evenly distribute the party favors—ahem, traffic.
+
+Corrective and Preventative Measures:
+
+Improvements/Fixes:
+1. Load Balancer Configuration Review: Hired a virtual bouncer to keep an eye on the Load Balancer Goblin's shenanigans.
+2. Monitoring Enhancement: Installed a laugh-o-meter to monitor system humor levels and detect any abnormal giggles.
+3. Documentation Update: Added a chapter on Load Balancer Goblin appeasement techniques to our virtual grimoire.
+
+Tasks:
+1. Load Balancer Audit: Scheduled a grand virtual audit of Load Balancer Goblins across all services.
+2. Training:Launched the "How to Tame Your Load Balancer Goblin" online training series.
+3. Automated Testing: Programmed a virtual load balancer rodeo into our CI/CD pipeline.
+
+This incident, although momentarily annoying, taught us the importance of keeping our Load Balancer Goblins in check. We're confident that with the new measures in place, our authentication service will continue to be the life of the virtual party without unexpected gatecrashers. May the login festivities never be disrupted again! 🎉
+
+
