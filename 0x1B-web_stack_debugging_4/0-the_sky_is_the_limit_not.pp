@@ -1,5 +1,4 @@
 # let we increases the amount of traffic an Nginx server can handle multiple requests.
-
 # Increase the ULIMIT of the default file
 exec { 'fix--for-nginx':
   command => 'sed -i "s/15/4096/" /etc/default/nginx',
@@ -8,6 +7,6 @@ exec { 'fix--for-nginx':
 
 # Restart Nginx
 exec { 'nginx-restart':
-  command => 'nginx restart',
+  command => '/etc/init.d/nginx restart',
   path    => '/etc/init.d/'
 }
